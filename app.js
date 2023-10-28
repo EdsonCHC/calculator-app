@@ -1,22 +1,38 @@
-let buttons = document.querySelectorAll("button");
-let screen = document.getElementById("screen");
-let clearButton = document.getElementById("clear");
-let calculation = [];
-let fixedCalculation; 
+$(function () {
+  let buttons = $(".button");
+  let screen = $("#screen");
+  let clearButton = $("#clear");
+  let calculation = [];
+  let fixedCalculation;
 
-buttons.forEach(button => button.addEventListener("click", (e)=> {
-        value = button.value;
-        screen.textContent += value;
-        calculation.push(value);
-        fixedCalculation = calculation.join("");
-})
-);
+  buttons.each(function () {
+    var button = $(this);
+    button.on("click", function (e) {
+      let value = button.val();
+      calculation.push(value);
+      fixedCalculation = calculation.join("");
+      screen.text(fixedCalculation);
+    });
+  });
 
-clearButton.addEventListener("click", (e) => {
-    screen.textContent = "";
+  clearButton.on("click", (e) => {
+    screen.text("");
+    $("#errDiv").text("");
     calculation = [];
-});
+  });
 
-document.getElementById("equals").addEventListener("click", (e) =>{
-    screen.textContent = eval(fixedCalculation);
-})
+  $("#equals").on("click", (e) => {
+    try{
+        let result = math.evaluate(fixedCalculation);
+        if(isFinite(result)){
+            screen.text(result);
+            calculation = [];
+            calculation.push(result);
+        }else{
+            $("#errDiv").text("Error: División por cero u operación no válida.");
+        }
+    }catch(e){
+        screen.text("Error");
+    }
+  });
+});
