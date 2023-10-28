@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="m-0 p-0 border-box">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,30 +9,40 @@
     <title>Basic Calculator</title>
 </head>
 <body class="grid w-full h-screen place-content-center bg-neutral-900">
-    <main id="calculator" class="w-96 h-fit p-2 bg-violet-700 rounded">
-        <div id="screen" class="w-full h-24 bg-gray-900 text-white text-7xl text-end overflow-hidden mb-1.5 rounded">
+    <main class="sm:flex gap-3 ">
+        <div id="calculator" class="w-72 h-fit p-2 bg-violet-700 rounded sm:w-96">
+            <div id="screen" class="w-full h-24 bg-gray-900 text-white text-7xl text-end overflow-hidden mb-1.5 rounded">
+            </div>
+            <div id="buttons" class="grid grid-cols-4 grid-rows-5 gap-1.5">
+                <button value="7" class="button bg-white w-full h-16 hover:bg-slate-400 active:bg-slate-600 rounded">7</button>
+                <button value="8" class="button bg-white w-full h-16 hover:bg-slate-400 active:bg-slate-600 rounded">8</button>
+                <button value="9" class="button bg-white w-full h-16 hover:bg-slate-400 active:bg-slate-600 rounded">9</button>
+                <button value="+" class="button bg-white w-full h-16 hover:bg-slate-400 active:bg-slate-600 rounded">+</button>
+                <button value="4" class="button bg-white w-full h-16 hover:bg-slate-400 active:bg-slate-600 rounded">4</button>
+                <button value="5" class="button bg-white w-full h-16 hover:bg-slate-400 active:bg-slate-600 rounded">5</button>
+                <button value="6" class="button bg-white w-full h-16 hover:bg-slate-400 active:bg-slate-600 rounded">6</button>
+                <button value="-" class="button bg-white w-full h-16 hover:bg-slate-400 active:bg-slate-600 rounded">-</button>
+                <button value="1" class="button bg-white w-full h-16 hover:bg-slate-400 active:bg-slate-600 rounded">1</button>
+                <button value="2" class="button bg-white w-full h-16 hover:bg-slate-400 active:bg-slate-600 rounded">2</button>
+                <button value="3" class="button bg-white w-full h-16 hover:bg-slate-400 active:bg-slate-600 rounded">3</buttonn>
+                <button value="*" class="button bg-white w-full h-16 hover:bg-slate-400 active:bg-slate-600 rounded">*</button>
+                <button value="0" class="button bg-white w-full h-16 hover:bg-slate-400 active:bg-slate-600 rounded">0</button>
+                <button value="." class="button bg-white w-full h-16 hover:bg-slate-400 active:bg-slate-600 rounded">.</button>
+                <button value="/" class="button bg-white w-full h-16 hover:bg-slate-400 active:bg-slate-600 rounded">/</button>
+                <button id="equals" class="bg-red-600 rounded">=</button>
+                <button id="clear" class="bg-lime-500 rounded col-start-1 col-end-5">CLEAR</button>
+            </div>
         </div>
-        <div id="buttons" class="grid grid-cols-4 grid-rows-5 gap-1.5"> 
-            <button value="7" class="button bg-white w-full h-16 hover:bg-slate-400 active:bg-slate-600 rounded">7</button>
-            <button value="8" class="button bg-white w-full h-16 hover:bg-slate-400 active:bg-slate-600 rounded">8</button>
-            <button value="9" class="button bg-white w-full h-16 hover:bg-slate-400 active:bg-slate-600 rounded">9</button>
-            <button value="+" class="button bg-white w-full h-16 hover:bg-slate-400 active:bg-slate-600 rounded">+</button>
-            <button value="4" class="button bg-white w-full h-16 hover:bg-slate-400 active:bg-slate-600 rounded">4</button>
-            <button value="5" class="button bg-white w-full h-16 hover:bg-slate-400 active:bg-slate-600 rounded">5</button>
-            <button value="6" class="button bg-white w-full h-16 hover:bg-slate-400 active:bg-slate-600 rounded">6</button>
-            <button value="-" class="button bg-white w-full h-16 hover:bg-slate-400 active:bg-slate-600 rounded">-</button>
-            <button value="1" class="button bg-white w-full h-16 hover:bg-slate-400 active:bg-slate-600 rounded">1</button>
-            <button value="2" class="button bg-white w-full h-16 hover:bg-slate-400 active:bg-slate-600 rounded">2</button>
-            <button value="3" class="button bg-white w-full h-16 hover:bg-slate-400 active:bg-slate-600 rounded">3</buttonn>
-            <button value="*" class="button bg-white w-full h-16 hover:bg-slate-400 active:bg-slate-600 rounded">*</button>
-            <button value="0" class="button bg-white w-full h-16 hover:bg-slate-400 active:bg-slate-600 rounded">0</button>
-            <button value="." class="button bg-white w-full h-16 hover:bg-slate-400 active:bg-slate-600 rounded">.</button>
-            <button value="/" class="button bg-white w-full h-16 hover:bg-slate-400 active:bg-slate-600 rounded">/</button>
-            <button id="equals" class="bg-red-600 rounded">=</button>
-            <button id="clear" class="bg-lime-500 rounded col-start-1 col-end-5">CLEAR</button>
+        <div id="errDiv" class="text-xs text-red-900"></div>
+        <div id="history" class="w-72 h-fit bg-neutral-600 rounded p-2 mt-4 text-white text-center text-lg sm:m-0">
+            <h1>History</h1>
+            <hr>
+            <div id="history-content">
+
+            </div>
         </div>
-    </main>
-    <div id="errDiv" class="text-xs text-red-900"></div>
+    </main> 
+    
     <script src="j_query.js"></script>
     <script src="app.js"></script>
 </body>
